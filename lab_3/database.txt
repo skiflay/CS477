@@ -1,1 +1,1 @@
-msg=simon+kiflay
+msg: simon kiflay

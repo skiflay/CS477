@@ -16,11 +16,12 @@ http.createServer((req, res)=>{
        })
       req.on('end', ()=>{
           const dataPost= Buffer.concat(body).toString();
-          console.log(dataPost)
-          const dataSplit = dataPost[1].split('=');
-          console.log(dataSplit)
-          const dataMsg = dataSplit[0].split('+');
-          fs.writeFile('database.txt', `${dataPost}`, err=>{
+          const dataPostArr = []
+          dataPostArr.push(dataPost)
+          const dataSplit = dataPostArr[0].split('=');
+          const dataMsg = dataSplit[1].split('+');
+          console.log(dataSplit, dataMsg)
+          fs.writeFile('database.txt', `${dataSplit[0]}: ${dataMsg[0]} ${dataMsg[1]}`, err=>{
               if(err) res.write('Try later');
               else res.end('Thank You for your submission')
           });
