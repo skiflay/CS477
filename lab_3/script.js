@@ -7,7 +7,7 @@ http.createServer((req, res)=>{
     if(url==='/'){
         res.write('<html>');
         res.write('<head> <title> lab-3 </title> </head>');
-        res.write('<body> <form action="abc" method="POST"> Enter Message <input type="text" name="msg"> <button type="button"> Submit </button></form></body>');
+        res.write('<body> <form action="abc" method="POST"> Enter Message <input type="text" name="msg"> <input type="submit" value="submit"> </form></body>');
         res.end();
     } else if(url==='/abc' && method==="POST"){
        const body = []
@@ -20,7 +20,6 @@ http.createServer((req, res)=>{
           dataPostArr.push(dataPost)
           const dataSplit = dataPostArr[0].split('=');
           const dataMsg = dataSplit[1].split('+');
-          console.log(dataSplit, dataMsg)
           fs.writeFile('database.txt', `${dataSplit[0]}: ${dataMsg[0]} ${dataMsg[1]}`, err=>{
               if(err) res.write('Try later');
               else res.end('Thank You for your submission')
