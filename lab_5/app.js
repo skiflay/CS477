@@ -1,9 +1,11 @@
 const express = require('express');
 const bookController = require('./router/bookRouter');
+const cors = require('cors');
 
 
 
 const app = express();
+app.use(cors());
 app.use(express.json());
 
 app.use('/books', bookController);

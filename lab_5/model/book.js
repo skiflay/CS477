@@ -25,11 +25,19 @@ class Books{
         return books;
     }
     static findById(bookId){
-        const item = books.find(id=> id!==bookId);
+        const item = books.findIndex(id=> id!==bookId);
         if(item> -1){
             return books[item];
         }
         throw new Error('Not Found!')
+    }
+    static deleteById(bookId){
+        const item = books.findIndex(item=> item.id===bookId);
+        if(item > -1){
+            books= books.filter(item=> item.id!==bookId);
+        } else {
+            throw new Error (`${bookId} not found`)
+        }
     }
 }
 

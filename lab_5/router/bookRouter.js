@@ -8,11 +8,8 @@ router.get('/', bookController.getBooks);
 router.get('/:bookId', bookController.getBookById);
 router.post('/', bookController.save);
 
-// router.get('/', productController.getProducts);
-// router.get('/:prodId', productController.getProductById);
-// router.post('/', productController.save);
-
-
+router.put('/:bookId', bookController.update);
+router.delete('/:bookId', bookController.deleteById);
 
 
 

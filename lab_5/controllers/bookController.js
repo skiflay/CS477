@@ -15,6 +15,16 @@ exports.save = (req, res, next)=>{
     res.status(201).json(savedBook);
 }
 
+exports.update = (req, res, next)=>{
+    const book = req.body;
+    const updateBook = new Books(req.params.bookId, book.title, book.author, book.publishedDate );
+    res.status(200).json(updateBook);
+}
+
+exports.deleteById = (req, res, next)=>{
+    Books.deleteById(req.params.bookId);
+    res.status(200).end();
+}
     
 
     
