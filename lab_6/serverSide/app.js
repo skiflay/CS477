@@ -1,7 +1,7 @@
 const express = require('express');
 const bookController = require('./router/bookRouter');
 const cors = require('cors');
-const authRouter = require('./routes/auth');
+const authRouter = require('./router/authoRoute');
 
 
 
